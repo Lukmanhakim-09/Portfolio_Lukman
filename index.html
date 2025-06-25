@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Lukman</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(45deg, #3B82F6, #8B5CF6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+    }
+    @keyframes fade-in-down {
+      0% { opacity: 0; transform: translateY(-30px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .animate-fade-in-down {
+      animation: fade-in-down 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Unique Vertical Sidebar Navigation (Desktop Only) -->
+  <div class="hidden md:flex flex-col items-center gap-4 fixed left-10 top-1/2 -translate-y-1/2 z-40">
+    <a href="#about" class="p-3 rounded-full bg-white/80 shadow hover:bg-blue-100 transition" title="Tentang Saya">
+      <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    </a>
+    <a href="#projects" class="p-3 rounded-full bg-white/80 shadow hover:bg-purple-100 transition" title="Proyek">
+      <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 21l3-1 3 1-.75-4M4 4h16v4H4z"/></svg>
+    </a>
+    <a href="#contact" class="p-3 rounded-full bg-white/80 shadow hover:bg-green-100 transition" title="Kontak">
+      <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 10a9 9 0 11-18 0 9 9 0 0118 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M9 12h.01"/></svg>
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-500/10 to-purple-500/10">
+    <div class="absolute inset-0"></div>
+    <div class="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-center md:justify-between gap-10 px-4 py-16" data-aos="fade-up">
+      <!-- Profile Photo & Sidebar Nav -->
+      <div class="flex-shrink-0 flex flex-col items-center md:items-start md:flex-row gap-0 md:gap-8">
+        <!-- Profile Photo -->
+        <img src="lukman.jpg" alt="Foto Lukman" class="w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-white shadow-xl object-cover mb-6 md:mb-0" data-aos="zoom-in" />
+      </div>
+      <!-- Text Content -->
+      <div class="text-center md:text-left flex-1">
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-4 gradient-text">Halo, Saya Lukman Hakim</h2>
+        <p class="text-xl md:text-2xl text-gray-600 mb-2 font-medium">Mahasiswa Sistem Informasi & Web Developer</p>
+        <div class="flex items-center justify-center md:justify-start text-gray-500 text-base mb-6 gap-2">
+          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+          <span>Jl. Tembang No 103, kel. Pallameang, Kec. Mattirosompe, Kab. Pinrang</span>
+        </div>
+        <a href="#contact" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors font-semibold text-lg">Hubungi Saya</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-4xl mx-auto py-24 px-4">
+    <div data-aos="fade-up" class="bg-white/80 rounded-2xl shadow-xl border border-blue-100 p-8 md:p-12 flex flex-col gap-6">
+      <h3 class="text-4xl font-bold mb-2 gradient-text">Tentang Saya</h3>
+      <div class="flex flex-wrap gap-3 mb-4">
+        <span class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 01-8 0m8 0a4 4 0 00-8 0m8 0V5a4 4 0 00-8 0v2m8 0a4 4 0 01-8 0m8 0v2a4 4 0 01-8 0V7"/></svg>
+          IPK 3.93
+        </span>
+        <span class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          Duta Kampus Intelegensia Sulsel 2023
+        </span>
+        <span class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12l2 2 4-4"/></svg>
+          Pengalaman Organisasi
+        </span>
+        <span class="inline-flex items-center gap-2 bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m4 0h-1v4h-1m-4 0h-1v-4h-1"/></svg>
+          Aktif di PPKS
+        </span>
+      </div>
+      <p class="text-lg leading-relaxed text-gray-700">
+        Saya adalah mahasiswa S1 Sistem Informasi Institut Teknologi Bacharuddin Jusuf Habibie yang berkomitmen tinggi untuk mencapai prestasi akademik yang lebih tinggi dengan IPK 3.97 dan berbagai pengalaman kepemimpinan di organisasi mahasiswa, saya telah menunjukkan dedikasi saya terhadap pendidikan dan pengembangan diri sebagai Duta Kampus Intelegensia Sulawesi Selatan 2023. Selain itu, saya aktif berpartisipasi dalam kegiatan pencegahan dan Penanganan kekerasan seksual (PPKS). Saya sangat antusias untuk mendapatkan beasiswa ini agar dapat terus berkontribusi dalam dunia pendidikan dan masyarakat.
+      </p>
+      <div class="italic text-blue-600 text-base mt-2 flex items-center gap-2">
+        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        "Dedikasi untuk pendidikan dan pengembangan diri adalah kunci masa depan."
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-24 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-4xl font-bold mb-12 text-center gradient-text" data-aos="fade-up">Proyek & Pengalaman</h3>
+      <div class="space-y-16">
+        <!-- Pengabdian Masyarakat -->
+        <div data-aos="fade-right">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tr from-blue-400 to-blue-600 text-white shadow-lg"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3 0 1.657 1.343 3 3 3s3-1.343 3-3c0-1.657-1.343-3-3-3zm0 0V4m0 7v7m-7-7h14"/></svg></span>
+            <h4 class="text-2xl font-semibold">Pengabdian Masyarakat</h4>
+          </div>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="relative bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="pelatihan-microsoft-project.jpg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Pelatihan</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-blue-700 transition">Pelatihan Microsoft Project</h5>
+              <p class="text-gray-700 mb-1">Kantor Kelurahan Lapadde, Kota Parepare</p>
+              <p class="text-sm text-gray-500">Pelatihan penggunaan Microsoft Project untuk staf kelurahan.</p>
+            </div>
+            <div class="relative bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="suruang.JPG" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Beasiswa</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-blue-700 transition">Program Khusus Penerima Beasiswa Kalla</h5>
+              <p class="text-gray-700 mb-1">Desa Suruang, Polewali Mandar</p>
+              <p class="text-sm text-gray-500">Pengabdian kepada masyarakat melalui program beasiswa Kalla.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Penelitian & Pengembangan -->
+        <div data-aos="fade-left">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tr from-purple-400 to-purple-600 text-white shadow-lg"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h2a4 4 0 014 4v2m-6 4h6a2 2 0 002-2v-6a2 2 0 00-2-2h-6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg></span>
+            <h4 class="text-2xl font-semibold">Penelitian & Pengembangan</h4>
+          </div>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="relative bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="bappeda.jpg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">System Analyst & Front End</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-purple-700 transition">Aplikasi Monitoring Keuangan Kota Parepare</h5>
+              <p class="text-gray-700 mb-1">Bappeda Parepare</p>
+              <p class="text-sm text-gray-500">Pengembangan aplikasi monitoring keuangan untuk Bappeda Parepare.</p>
+            </div>
+            <div class="relative bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="ppkpt.jpeg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Web Dev</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-purple-700 transition">Perancangan Website PPKPT "Lapor Aman"</h5>
+              <p class="text-gray-700 mb-1">Proyek Penelitian & Pengembangan</p>
+              <p class="text-sm text-gray-500">Website pelaporan kekerasan seksual dengan keamanan data.</p>
+            </div>
+            <div class="relative bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="cyberscape.png" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-pink-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Game Edukasi</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-pink-700 transition">Perancangan Game Edukasi Keamanan Jaringan</h5>
+              <p class="text-gray-700 mb-1">Proyek Edukasi & Teknologi</p>
+              <p class="text-sm text-gray-500">Perancangan game edukasi interaktif untuk meningkatkan pemahaman keamanan jaringan bagi pelajar dan mahasiswa.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Pelatihan & Sertifikasi -->
+        <div data-aos="fade-right">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tr from-green-400 to-green-600 text-white shadow-lg"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3 0 1.657 1.343 3 3 3s3-1.343 3-3c0-1.657-1.343-3-3-3zm0 0V4m0 7v7m-7-7h14"/></svg></span>
+            <h4 class="text-2xl font-semibold">Pelatihan & Sertifikasi</h4>
+          </div>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="relative bg-gradient-to-br from-green-100 to-green-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="PPKS.jpg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">PPKS</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-green-700 transition">Pelatihan Peningkatan Kapasitas PPKS</h5>
+              <p class="text-gray-700 mb-1">Kemendikbudristek, Wilayah IV (Timur)</p>
+              <p class="text-sm text-gray-500">Pelatihan pencegahan & penanganan kekerasan seksual di kampus, diikuti universitas dari Kalimantan, Sulawesi, NTT, dan Papua.</p>
+            </div>
+            <div class="relative bg-gradient-to-br from-green-100 to-green-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="kepemimpinan.jpeg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Kepemimpinan</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-green-700 transition">Pelatihan Kepemimpinan Kalla</h5>
+              <p class="text-gray-700 mb-1">2022-2024</p>
+              <p class="text-sm text-gray-500">Peserta pelatihan kepemimpinan yang diselenggarakan oleh Kalla, fokus pada pengembangan soft skill dan kepemimpinan pemuda.</p>
+            </div>
+            <div class="relative bg-gradient-to-br from-green-100 to-green-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="duta.jpg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Duta</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-green-700 transition">Duta Kampus Intelegensia Sulawesi Selatan</h5>
+              <p class="text-gray-700 mb-1">2023-2024</p>
+              <p class="text-sm text-gray-500">Menjabat sebagai Duta Kampus Intelegensia Sulawesi Selatan, berperan aktif dalam promosi pendidikan dan pengembangan intelektual mahasiswa.</p>
+            </div>
+            <div class="relative bg-gradient-to-br from-green-100 to-green-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="kominfo1.jpeg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Kewirausahaan</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-green-700 transition">Pelatihan Kewirausahaan Kominfo</h5>
+              <p class="text-gray-700 mb-1">2024</p>
+              <p class="text-sm text-gray-500">Peserta pelatihan kewirausahaan yang diadakan oleh Kominfo, memperdalam pengetahuan dan keterampilan bisnis digital.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Pengalaman Lain (Horizontal Cards) -->
+        <div data-aos="fade-left">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-400 to-yellow-600 text-white shadow-lg"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 01-8 0m8 0a4 4 0 00-8 0m8 0V5a4 4 0 00-8 0v2m8 0a4 4 0 01-8 0m8 0v2a4 4 0 01-8 0V7"/></svg></span>
+            <h4 class="text-2xl font-semibold">Pengalaman Lain</h4>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-yellow-50 rounded-xl p-6 shadow card-hover flex flex-col items-center">
+              <img src="paskibra.jpeg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <h5 class="font-bold text-lg mb-1">Anggota Paskibraka</h5>
+              <p class="text-gray-700 mb-1">Tingkat Kabupaten</p>
+              <p class="text-sm text-gray-500">Menjadi anggota Paskibraka tingkat kabupaten.</p>
+            </div>
+            <div class="bg-yellow-50 rounded-xl p-6 shadow card-hover flex flex-col items-center">
+              <img src="bem.jpeg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <h5 class="font-bold text-lg mb-1">Badan Eksekutif Mahasiswa</h5>
+              <p class="text-gray-700 mb-1">2022-2023</p>
+              <p class="text-sm text-gray-500">Koordinator Penalaran, aktif dalam pengembangan intelektual dan kegiatan organisasi mahasiswa.</p>
+            </div>
+            <div class="bg-yellow-50 rounded-xl p-6 shadow card-hover flex flex-col items-center">
+              <img src="kalla.jpg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <h5 class="font-bold text-lg mb-1">Komunitas Kalla Youth Changemaker</h5>
+              <p class="text-gray-700 mb-1">2022-Sekarang</p>
+              <p class="text-sm text-gray-500">Kalla Youth Change maker atau disingkat KYC. saya merupakah Anggota aktif dalam komunitas penggerak perubahan dan pengembangan kepemudaan.</p>
+            </div>
+            <div class="bg-yellow-50 rounded-xl p-6 shadow card-hover flex flex-col items-center">
+              <img src="sbppkm.jpeg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <h5 class="font-bold text-lg mb-1">SBPPKM di ITS & Universitas Brawijaya</h5>
+              <p class="text-gray-700 mb-1">2024</p>
+              <p class="text-sm text-gray-500">Peserta SBPPKM (Studi Banding Peningkatan dan Pengembangan Kreatifitas Mahasiswa) di ITS dan Universitas Brawijaya, memperluas wawasan dan jejaring nasional.</p>
+            </div>
+            <div class="bg-yellow-50 rounded-xl p-6 shadow card-hover flex flex-col items-center">
+              <img src="sandination.jpg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <h5 class="font-bold text-lg mb-1">Acara Sandination Makassar</h5>
+              <p class="text-gray-700 mb-1">2023</p>
+              <p class="text-sm text-gray-500">Peserta Acara Sandination di Makassar, 2023. Mengikuti seminar dan workshop seputar inovasi, teknologi, dan pengembangan diri.</p>
+            </div>
+            <div class="bg-yellow-50 rounded-xl p-6 shadow card-hover flex flex-col items-center">
+              <img src="mc.jpg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <h5 class="font-bold text-lg mb-1">Master of Ceremony</h5>
+              <p class="text-gray-700 mb-1">Berbagai Acara</p>
+              <p class="text-sm text-gray-500">Menjadi MC di berbagai event formal dan informal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-4xl mx-auto py-24 px-4">
+    <div data-aos="fade-up" class="bg-white/80 rounded-2xl shadow-xl border border-blue-100 p-8 md:p-12 flex flex-col gap-8">
+      <h3 class="text-4xl font-bold mb-6 gradient-text text-center">Kontak</h3
+      <div class="border border-blue-200 rounded-2xl shadow-md bg-blue-50/30 p-6 flex flex-col gap-6">
+        <a href="mailto:lukman090603@gmail.com" target="_blank" class="flex items-center gap-4 bg-blue-100 rounded-2xl shadow-md p-5 hover:shadow-lg transition group">
+          <span class="bg-blue-600 text-white rounded-full flex items-center justify-center w-12 h-12 shadow">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </span>
+          <div>
+            <div class="text-lg font-bold text-blue-800 group-hover:underline">Email</div>
+            <div class="text-gray-600">lukman090603@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://wa.me/6282296535929" target="_blank" class="flex items-center gap-4 bg-green-100 rounded-2xl shadow-md p-5 hover:shadow-lg transition group">
+          <span class="bg-green-500 text-white rounded-full flex items-center justify-center w-12 h-12 shadow">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </span>
+          <div>
+            <div class="text-lg font-bold text-green-800 group-hover:underline">WhatsApp</div>
+            <div class="text-gray-600">+62 82296535929</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/lukman" target="_blank" class="flex items-center gap-4 bg-blue-200 rounded-2xl shadow-md p-5 hover:shadow-lg transition group">
+          <span class="bg-blue-700 text-white rounded-full flex items-center justify-center w-12 h-12 shadow">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><g><rect x="2" y="2" width="20" height="20" rx="5" fill="#2563eb"/><path d="M6.94 19V9.97H4.13V19h2.81zm-1.41-10.2c.97 0 1.57-.65 1.57-1.46-.02-.83-.6-1.46-1.55-1.46-.95 0-1.57.63-1.57 1.46 0 .81.6 1.46 1.53 1.46h.02zm2.96 10.2h2.81v-5.06c0-.27.02-.54.1-.73.22-.54.72-1.1 1.56-1.1 1.1 0 1.54.83 1.54 2.05V19h2.81v-5.42c0-2.9-1.55-4.25-3.62-4.25-1.67 0-2.41.92-2.83 1.57v.02h-.02a6.6 6.6 0 0 1 .02-.02V9.97H8.49c.04.86 0 9.03 0 9.03z" fill="#fff"/></g></svg>
+          </span>
+          <div>
+            <div class="text-lg font-bold text-blue-900 group-hover:underline">LinkedIn</div>
+            <div class="text-gray-600">linkedin.com/in/lukman</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 text-sm py-8 border-t">
+    © 2025 Lukman Hakim. All rights reserved.
+  </footer>
+
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>
