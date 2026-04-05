@@ -16,6 +16,7 @@
       background: linear-gradient(45deg, #3B82F6, #8B5CF6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .card-hover {
       transition: all 0.3s ease;
@@ -29,6 +30,12 @@
     }
     .animate-fade-in-down {
       animation: fade-in-down 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    /* Updated image styling to ensure the full face is visible */
+    img {
+      object-fit: contain; /* Ensures the entire image is visible */
+      width: 100%;
+      height: auto;
     }
   </style>
 </head>
@@ -76,7 +83,7 @@
       <div class="flex flex-wrap gap-3 mb-4">
         <span class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 01-8 0m8 0a4 4 0 00-8 0m8 0V5a4 4 0 00-8 0v2m8 0a4 4 0 01-8 0m8 0v2a4 4 0 01-8 0V7"/></svg>
-          IPK 3.93
+          IPK 3.97
         </span>
         <span class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -88,15 +95,42 @@
         </span>
         <span class="inline-flex items-center gap-2 bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm font-semibold shadow-sm">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m4 0h-1v4h-1m-4 0h-1v-4h-1"/></svg>
-          Aktif di PPKS
+          Aktif di PPKPT
         </span>
       </div>
       <p class="text-lg leading-relaxed text-gray-700">
-        Saya adalah mahasiswa S1 Sistem Informasi Institut Teknologi Bacharuddin Jusuf Habibie yang berkomitmen tinggi untuk mencapai prestasi akademik yang lebih tinggi dengan IPK 3.97 dan berbagai pengalaman kepemimpinan di organisasi mahasiswa, saya telah menunjukkan dedikasi saya terhadap pendidikan dan pengembangan diri sebagai Duta Kampus Intelegensia Sulawesi Selatan 2023. Selain itu, saya aktif berpartisipasi dalam kegiatan pencegahan dan Penanganan kekerasan seksual (PPKS). Saya sangat antusias untuk mendapatkan beasiswa ini agar dapat terus berkontribusi dalam dunia pendidikan dan masyarakat.
+        Saya adalah mahasiswa S1 Sistem Informasi Institut Teknologi Bacharuddin Jusuf Habibie yang berkomitmen tinggi untuk mencapai prestasi akademik yang lebih tinggi dengan IPK 3.97 dan berbagai pengalaman kepemimpinan di organisasi mahasiswa, saya telah menunjukkan dedikasi saya terhadap pendidikan dan pengembangan diri sebagai Duta Kampus Intelegensia Sulawesi Selatan 2023. Selain itu, saya aktif berpartisipasi dalam kegiatan pencegahan dan Penanganan kekerasan Perguruan Tinggi (PPKPT). Saya sangat antusias untuk mendapatkan kesempatan mengabdikan diri agar dapat berkontribusi dalam ruang lingkup perusahaan.
       </p>
       <div class="italic text-blue-600 text-base mt-2 flex items-center gap-2">
         <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
         "Dedikasi untuk pendidikan dan pengembangan diri adalah kunci masa depan."
+      </div>
+    </div>
+  </section>
+
+  <!-- Added Achievements Row Below About Section -->
+  <section id="achievements" class="max-w-6xl mx-auto py-12 px-4">
+    <h3 class="text-4xl font-bold mb-8 text-center gradient-text" data-aos="fade-up">Prestasi</h3>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <div class="relative bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+        <h5 class="font-bold text-lg mb-1 group-hover:text-yellow-700 transition">Top 5 Inovation Video Competition Tingkat Nasional</h5>
+        <p class="text-gray-700 mb-1">Kompetisi video inovasi tingkat nasional.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="relative bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+        <h5 class="font-bold text-lg mb-1 group-hover:text-yellow-700 transition">Lolos Pendanaan Program Kreativitas Mahasiswa (PKM)</h5>
+        <p class="text-gray-700 mb-1">Mendapatkan pendanaan dari Kemendikti Saintek.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="relative bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+        <h5 class="font-bold text-lg mb-1 group-hover:text-yellow-700 transition">Awardee Beasiswa Kalla</h5>
+        <p class="text-gray-700 mb-1">Penerima beasiswa prestasi dari Kalla Group.</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="relative bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+        <h5 class="font-bold text-lg mb-1 group-hover:text-yellow-700 transition">Juara Duta Kampus Intelegensia Sulawesi Selatan</h5>
+        <p class="text-gray-700 mb-1">Penghargaan sebagai Duta Kampus Intelegensia Sulawesi Selatan.</p>
       </div>
     </div>
   </section>
@@ -144,18 +178,32 @@
               <p class="text-sm text-gray-500">Pengembangan aplikasi monitoring keuangan untuk Bappeda Parepare.</p>
             </div>
             <div class="relative bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="magang.jpeg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Fullstack Developer</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-purple-700 transition">Aplikasi Keuangan Kalla Institute</h5>
+              <p class="text-gray-700 mb-1">Kalla Group</p>
+              <p class="text-sm text-gray-500">Pengembangan aplikasi Pada Biro Keuangan Kalla Institute pada saat magang.</p>
+            </div>
+            <div class="relative bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
               <img src="ppkpt.jpeg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
-              <span class="absolute top-4 right-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Web Dev</span>
+              <span class="absolute top-4 right-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">System Analyst & Front-End</span>
               <h5 class="font-bold text-lg mb-1 group-hover:text-purple-700 transition">Perancangan Website PPKPT "Lapor Aman"</h5>
               <p class="text-gray-700 mb-1">Proyek Penelitian & Pengembangan</p>
               <p class="text-sm text-gray-500">Website pelaporan kekerasan seksual dengan keamanan data.</p>
             </div>
             <div class="relative bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
               <img src="cyberscape.png" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
-              <span class="absolute top-4 right-4 bg-pink-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Game Edukasi</span>
+              <span class="absolute top-4 right-4 bg-pink-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">System Analyst & Front-End</span>
               <h5 class="font-bold text-lg mb-1 group-hover:text-pink-700 transition">Perancangan Game Edukasi Keamanan Jaringan</h5>
               <p class="text-gray-700 mb-1">Proyek Edukasi & Teknologi</p>
               <p class="text-sm text-gray-500">Perancangan game edukasi interaktif untuk meningkatkan pemahaman keamanan jaringan bagi pelajar dan mahasiswa.</p>
+            </div>
+            <div class="relative bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-6 shadow-xl card-hover group overflow-hidden">
+              <img src="Kegiatan PKM-KC.jpg" alt="Dokumentasi" class="w-full h-36 object-cover rounded-xl mb-4 shadow">
+              <span class="absolute top-4 right-4 bg-pink-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Project Manager</span>
+              <h5 class="font-bold text-lg mb-1 group-hover:text-pink-700 transition">Perancangan Aplikasi Mobile ISARA Language</h5>
+              <p class="text-gray-700 mb-1">Proyek Pendanaan Kemendikti Saintek PKM (Prorgam Kreatifitas Mahasiswa)</p>
+              <p class="text-sm text-gray-500">Aplikasi ISARA adalah sebuah aplikasi yang mendapatkan pendanaan dari Kemendikti Saintek melalui Program Kreativitas Mahasiswa. Peran saya meliputi perancangan konsep aplikasi, pengembangan fitur, serta penyesuaian sistem dengan kebutuhan pengguna.</p>
             </div>
           </div>
         </div>
@@ -248,7 +296,7 @@
   <!-- Contact -->
   <section id="contact" class="max-w-4xl mx-auto py-24 px-4">
     <div data-aos="fade-up" class="bg-white/80 rounded-2xl shadow-xl border border-blue-100 p-8 md:p-12 flex flex-col gap-8">
-      <h3 class="text-4xl font-bold mb-6 gradient-text text-center">Kontak</h3
+      <h3 class="text-4xl font-bold mb-6 gradient-text text-center">Kontak</h3>
       <div class="border border-blue-200 rounded-2xl shadow-md bg-blue-50/30 p-6 flex flex-col gap-6">
         <a href="mailto:lukman090603@gmail.com" target="_blank" class="flex items-center gap-4 bg-blue-100 rounded-2xl shadow-md p-5 hover:shadow-lg transition group">
           <span class="bg-blue-600 text-white rounded-full flex items-center justify-center w-12 h-12 shadow">
