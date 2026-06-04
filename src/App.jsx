@@ -123,7 +123,7 @@ export default function App() {
     { image: '/ppkpt.jpeg', text: 'PPKPT Lapor Aman' },
     { image: '/bappeda.jpg', text: 'Bappeda Parepare' },
     { image: '/suruang.JPG', text: 'Beasiswa Kalla Suruang' },
-    { image: '/graduation.jpeg', text: 'Wisuda Akademik' },
+    { image: '/graduation.jpeg', text: 'Graduation' },
     { image: '/sb2.jpg', text: 'Studi Banding ITS' },
     { image: '/sb3.jpeg', text: 'Studi Banding UB' },
     { image: '/iic.jpeg', text: 'IIC Competition' },
@@ -339,33 +339,33 @@ export default function App() {
       <div className="glowing-bg-cyan top-[60%] right-[-100px] animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
 
       {/* Navigation Header */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-4">
-        <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-4 flex items-center justify-between shadow-2xl border-white/5">
+      <nav className="fixed top-0 left-0 w-full z-50 px-3 md:px-8 py-3 md:py-4">
+        <div className="max-w-7xl mx-auto glass-panel rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 flex items-center justify-between shadow-2xl border-white/5">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-indigo-500/20 font-display">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-tr from-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-sm md:text-lg text-white shadow-lg shadow-indigo-500/20 font-display">
               LH
             </div>
             <div className="hidden sm:block">
-              <span className="font-bold text-lg tracking-wide text-white">Lukman Hakim</span>
-              <span className="block text-[10px] text-indigo-400 font-medium font-display leading-none mt-0.5">SYSTEM INFORMATION</span>
+              <span className="font-bold text-base md:text-lg tracking-wide text-white">Lukman Hakim</span>
+              <span className="block text-[9px] md:text-[10px] text-indigo-400 font-medium font-display leading-none mt-0.5">SYSTEM INFORMATION</span>
             </div>
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             <button onClick={() => handleScrollToSection('about')} className="text-gray-300 hover:text-white transition font-medium text-sm">Tentang</button>
             <button onClick={() => handleScrollToSection('showcase')} className="text-gray-300 hover:text-white transition font-medium text-sm">Galeri 3D</button>
             <button onClick={() => handleScrollToSection('achievements')} className="text-gray-300 hover:text-white transition font-medium text-sm">Prestasi</button>
-            <button onClick={() => handleScrollToSection('projects')} className="text-gray-300 hover:text-white transition font-medium text-sm">Proyek & Pengalaman</button>
+            <button onClick={() => handleScrollToSection('projects')} className="text-gray-300 hover:text-white transition font-medium text-sm">Proyek</button>
             <button onClick={() => handleScrollToSection('contact')} className="text-gray-300 hover:text-white transition font-medium text-sm">Kontak</button>
           </div>
 
           {/* Contact Button */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Magnetic strength={0.2}>
               <button 
                 onClick={() => handleScrollToSection('contact')}
-                className="bg-indigo-600/90 text-white font-medium text-sm px-5 py-2.5 rounded-xl border border-indigo-500/30 hover:bg-indigo-500 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 transition-all duration-300 cursor-pointer"
+                className="bg-indigo-600/90 text-white font-medium text-sm px-4 py-2 rounded-xl border border-indigo-500/30 hover:bg-indigo-500 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 transition-all duration-300 cursor-pointer"
               >
                 Hubungi Saya
               </button>
@@ -375,45 +375,45 @@ export default function App() {
           {/* Mobile Menu Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-300 hover:text-white focus:outline-none"
+            className="lg:hidden p-1.5 text-gray-300 hover:text-white focus:outline-none"
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-2 glass-panel rounded-2xl p-6 shadow-2xl border-white/5 flex flex-col gap-4 animate-fade-in-down">
-            <button onClick={() => handleScrollToSection('about')} className="text-left py-2 text-gray-300 hover:text-white transition font-medium text-base border-b border-white/5">Tentang Saya</button>
-            <button onClick={() => handleScrollToSection('showcase')} className="text-left py-2 text-gray-300 hover:text-white transition font-medium text-base border-b border-white/5">Galeri 3D</button>
-            <button onClick={() => handleScrollToSection('achievements')} className="text-left py-2 text-gray-300 hover:text-white transition font-medium text-base border-b border-white/5">Prestasi</button>
-            <button onClick={() => handleScrollToSection('projects')} className="text-left py-2 text-gray-300 hover:text-white transition font-medium text-base border-b border-white/5">Proyek & Pengalaman</button>
-            <button onClick={() => handleScrollToSection('contact')} className="text-left py-2 text-indigo-400 hover:text-indigo-300 transition font-bold text-base">Hubungi Saya</button>
+          <div className="lg:hidden mt-2 glass-panel rounded-2xl px-6 py-4 shadow-2xl border-white/5 flex flex-col gap-1 animate-fade-in-down">
+            <button onClick={() => handleScrollToSection('about')} className="text-left py-3 text-gray-300 hover:text-white transition font-medium text-sm border-b border-white/5">Tentang Saya</button>
+            <button onClick={() => handleScrollToSection('showcase')} className="text-left py-3 text-gray-300 hover:text-white transition font-medium text-sm border-b border-white/5">Galeri 3D</button>
+            <button onClick={() => handleScrollToSection('achievements')} className="text-left py-3 text-gray-300 hover:text-white transition font-medium text-sm border-b border-white/5">Prestasi</button>
+            <button onClick={() => handleScrollToSection('projects')} className="text-left py-3 text-gray-300 hover:text-white transition font-medium text-sm border-b border-white/5">Proyek & Pengalaman</button>
+            <button onClick={() => handleScrollToSection('contact')} className="text-left py-3 text-indigo-400 hover:text-indigo-300 transition font-bold text-sm">Hubungi Saya</button>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden px-4">
-        <div className="max-w-5xl mx-auto text-center z-10 flex flex-col items-center">
+      <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden px-4">
+        <div className="max-w-5xl mx-auto text-center z-10 flex flex-col items-center w-full">
           {/* Avatar Container */}
-          <div className="relative mb-8 group">
+          <div className="relative mb-6 md:mb-8 group">
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-400 blur-md opacity-75 group-hover:scale-105 transition-all duration-500"></div>
             <img 
               src="/Foto Lukman Hakim.png" 
               alt="Foto Lukman Hakim" 
-              className="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-slate-900 object-cover shadow-2xl z-10 transition-transform duration-500 group-hover:scale-[1.02]"
+              className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-full border-4 border-slate-900 object-cover shadow-2xl z-10 transition-transform duration-500 group-hover:scale-[1.02]"
             />
             {/* IPK Badge */}
-            <span className="absolute bottom-0 right-0 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-xs font-bold font-display px-3 py-1.5 rounded-full shadow-lg border border-slate-900/60 z-20">
+            <span className="absolute bottom-0 right-0 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-[10px] md:text-xs font-bold font-display px-2 py-1 md:px-3 md:py-1.5 rounded-full shadow-lg border border-slate-900/60 z-20">
               GPA 3.97
             </span>
           </div>
 
           {/* Heading with Decrypted Text */}
-          <h1 className="text-4xl md:text-7xl font-extrabold mb-4 tracking-tight leading-tight select-none">
-            <span className="block text-gray-300 text-2xl md:text-3xl font-normal font-sans mb-2">Halo, Saya</span>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-3 md:mb-4 tracking-tight leading-tight select-none px-2">
+            <span className="block text-gray-300 text-lg sm:text-xl md:text-3xl font-normal font-sans mb-1 md:mb-2">Halo, Saya</span>
             <DecryptedText 
               text="Lukman Hakim" 
               speed={60}
@@ -424,30 +424,28 @@ export default function App() {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-2xl text-gray-400 font-medium max-w-2xl mb-4 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 font-medium max-w-2xl mb-3 md:mb-4 leading-relaxed px-4">
             Mahasiswa Sistem Informasi &amp; Web Developer
           </p>
 
           {/* Location */}
-          <div className="flex items-center gap-2 text-gray-500 text-xs md:text-sm mb-10 max-w-md">
-            <MapPin className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="leading-snug">Institut Teknologi Bacharuddin Jusuf Habibie (ITBH), Pinrang, Sulsel</span>
+          <div className="flex items-start gap-2 text-gray-500 text-[11px] sm:text-xs md:text-sm mb-8 md:mb-10 max-w-xs sm:max-w-sm md:max-w-md px-2 text-center justify-center">
+            <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-400 flex-shrink-0 mt-0.5" />
+            <span className="leading-snug text-center">Institut Teknologi Bacharuddin Jusuf Habibie (ITBH), Pinrang, Sulsel</span>
           </div>
 
           {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <Magnetic strength={0.2}>
-              <button 
-                onClick={() => handleScrollToSection('projects')}
-                className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-semibold px-8 py-3.5 rounded-xl hover:from-indigo-500 hover:to-indigo-600 transition-all duration-300 shadow-xl shadow-indigo-600/30 hover:shadow-indigo-500/40 text-base flex items-center gap-2 cursor-pointer"
-              >
-                Lihat Proyek <ChevronRight className="w-4 h-4" />
-              </button>
-            </Magnetic>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-center w-full max-w-sm sm:max-w-none px-4">
+            <button 
+              onClick={() => handleScrollToSection('projects')}
+              className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-semibold px-6 md:px-8 py-3 md:py-3.5 rounded-xl hover:from-indigo-500 hover:to-indigo-600 transition-all duration-300 shadow-xl shadow-indigo-600/30 hover:shadow-indigo-500/40 text-sm md:text-base flex items-center justify-center gap-2 cursor-pointer"
+            >
+              Lihat Proyek <ChevronRight className="w-4 h-4" />
+            </button>
             
             <button 
               onClick={() => handleScrollToSection('contact')}
-              className="bg-slate-900/80 hover:bg-slate-800 text-gray-300 hover:text-white font-semibold px-8 py-3.5 rounded-xl border border-white/5 transition-all duration-300 text-base cursor-pointer"
+              className="w-full sm:w-auto bg-slate-900/80 hover:bg-slate-800 text-gray-300 hover:text-white font-semibold px-6 md:px-8 py-3 md:py-3.5 rounded-xl border border-white/5 transition-all duration-300 text-sm md:text-base cursor-pointer"
             >
               Kontak Saya
             </button>
@@ -456,11 +454,11 @@ export default function App() {
       </section>
 
       {/* Showcase Section (Circular Gallery) */}
-      <section id="showcase" className="py-24 relative overflow-hidden bg-slate-950/20">
+      <section id="showcase" className="py-14 md:py-24 relative overflow-hidden bg-slate-950/20">
         <div className="max-w-7xl mx-auto px-4 text-center z-10 relative">
-          <div className="mb-12">
-            <span className="text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-3">GALLERY INTERAKTIF</span>
-            <h2 className="text-3xl md:text-5xl font-bold font-sans">
+          <div className="mb-8 md:mb-12">
+            <span className="text-[10px] md:text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-2 md:mb-3">GALLERY INTERAKTIF</span>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold font-sans">
               <DecryptedText 
                 text="Highlight Pencapaian" 
                 speed={50}
@@ -469,13 +467,13 @@ export default function App() {
                 className="text-white"
               />
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto mt-4 text-sm md:text-base">
-              Gunakan mouse atau swipe pada layar HP Anda untuk menggeser, memutar, dan menjelajahi dokumentasi 3D kegiatan utama saya.
+            <p className="text-gray-400 max-w-xl mx-auto mt-3 md:mt-4 text-xs md:text-base px-2">
+              Geser atau swipe untuk menjelajahi dokumentasi 3D kegiatan utama saya.
             </p>
           </div>
 
           {/* CircularGallery Wrapper */}
-          <div className="canvas-wrapper relative w-full h-[500px] md:h-[550px] bg-indigo-950/5 rounded-3xl border border-white/5 overflow-hidden">
+          <div className="canvas-wrapper relative w-full h-[320px] sm:h-[400px] md:h-[500px] lg:h-[550px] bg-indigo-950/5 rounded-2xl md:rounded-3xl border border-white/5 overflow-hidden">
             <CircularGallery
               items={galleryItems}
               bend={3}
@@ -483,37 +481,37 @@ export default function App() {
               borderRadius={0.06}
               scrollEase={0.03}
               fontUrl="https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap"
-              font="bold 28px Outfit"
+              font="bold 22px Outfit"
             />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 px-4 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section id="about" className="py-14 md:py-24 px-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
           {/* Left Column: Image/Tags */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="glass-panel p-6 rounded-3xl relative overflow-hidden group border-white/5 shadow-2xl">
+            <div className="glass-panel p-4 md:p-6 rounded-2xl md:rounded-3xl relative overflow-hidden group border-white/5 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               <img 
                 src="/Foto Lukman Hakim.png" 
                 alt="Tentang Lukman" 
-                className="w-full h-80 object-cover rounded-2xl shadow-lg border border-white/5 group-hover:scale-[1.01] transition-transform duration-700" 
+                className="w-full h-56 sm:h-72 md:h-80 object-cover rounded-xl md:rounded-2xl shadow-lg border border-white/5 group-hover:scale-[1.01] transition-transform duration-700" 
               />
               
               {/* Badge Overlay */}
-              <div className="mt-6 flex flex-wrap gap-2">
-                <span className="bg-indigo-500/10 text-indigo-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-indigo-500/20">
+              <div className="mt-4 md:mt-6 flex flex-wrap gap-2">
+                <span className="bg-indigo-500/10 text-indigo-300 text-[10px] md:text-xs font-semibold px-2.5 py-1 md:px-3 md:py-1.5 rounded-full border border-indigo-500/20">
                   ⚡ IPK 3.97 / 4.00
                 </span>
-                <span className="bg-cyan-500/10 text-cyan-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-cyan-500/20">
+                <span className="bg-cyan-500/10 text-cyan-300 text-[10px] md:text-xs font-semibold px-2.5 py-1 md:px-3 md:py-1.5 rounded-full border border-cyan-500/20">
                   👑 Duta Kampus Sulsel
                 </span>
-                <span className="bg-purple-500/10 text-purple-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-purple-500/20">
+                <span className="bg-purple-500/10 text-purple-300 text-[10px] md:text-xs font-semibold px-2.5 py-1 md:px-3 md:py-1.5 rounded-full border border-purple-500/20">
                   👥 Organisasi Aktif
                 </span>
-                <span className="bg-emerald-500/10 text-emerald-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-emerald-500/20">
+                <span className="bg-emerald-500/10 text-emerald-300 text-[10px] md:text-xs font-semibold px-2.5 py-1 md:px-3 md:py-1.5 rounded-full border border-emerald-500/20">
                   🛡️ Satgas PPKS
                 </span>
               </div>
@@ -521,25 +519,25 @@ export default function App() {
           </div>
 
           {/* Right Column: Bio */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="lg:col-span-7 flex flex-col gap-5 md:gap-6">
             <div>
-              <span className="text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-3">TENTANG SAYA</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+              <span className="text-[10px] md:text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-2 md:mb-3">TENTANG SAYA</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                 Mengejar Akademik &amp; Dedikasi Organisasi
               </h2>
             </div>
             
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+            <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed">
               Saya adalah mahasiswa S1 Sistem Informasi di <strong>Institut Teknologi Bacharuddin Jusuf Habibie</strong> yang berkomitmen tinggi untuk mencapai keunggulan akademik, terbukti dengan perolehan <strong>IPK 3.97</strong>.
             </p>
             
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-              Selain fokus di bidang teknologi dan analisis sistem, saya mendedikasikan diri dalam kepemimpinan mahasiswa dan pengabdian masyarakat. Sebagai <strong>Duta Kampus Intelegensia Sulawesi Selatan 2023</strong>, saya aktif mempromosikan kemajuan pendidikan. Saya juga berkontribusi secara nyata dalam perlindungan mahasiswa dengan berperan aktif di kegiatan Pencegahan dan Penanganan Kekerasan Seksual (Satgas PPKS).
+            <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed">
+              Selain fokus di bidang teknologi dan analisis sistem, saya mendedikasikan diri dalam kepemimpinan mahasiswa dan pengabdian masyarakat. Sebagai <strong>Duta Kampus Intelegensia Sulawesi Selatan 2023</strong>, saya aktif mempromosikan kemajuan pendidikan dan berkontribusi dalam perlindungan mahasiswa melalui Satgas PPKS.
             </p>
 
             {/* Motto Quote Card */}
-            <div className="relative border-l-4 border-indigo-500 bg-slate-900/40 backdrop-blur-md p-5 rounded-r-2xl border-y border-r border-white/5">
-              <p className="italic text-indigo-300 font-medium text-base">
+            <div className="relative border-l-4 border-indigo-500 bg-slate-900/40 backdrop-blur-md p-4 md:p-5 rounded-r-2xl border-y border-r border-white/5">
+              <p className="italic text-indigo-300 font-medium text-sm md:text-base">
                 "Dedikasi untuk pendidikan dan pengembangan diri adalah kunci masa depan."
               </p>
             </div>
@@ -548,28 +546,28 @@ export default function App() {
       </section>
 
       {/* Achievements Section */}
-      <section id="achievements" className="py-24 px-4 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-3">REKAM PRESTASI</span>
-          <h2 className="text-3xl md:text-5xl font-bold">
+      <section id="achievements" className="py-14 md:py-24 px-4 max-w-6xl mx-auto">
+        <div className="text-center mb-10 md:mb-16">
+          <span className="text-[10px] md:text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-2 md:mb-3">REKAM PRESTASI</span>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold">
             Pencapaian Nasional &amp; Daerah
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
           {achievements.map((item, index) => {
             const IconComponent = item.icon;
             return (
-              <SpotlightCard key={index} className="p-8">
-                <div className="flex gap-5 items-start">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-tr ${item.accent} flex items-center justify-center text-slate-950 flex-shrink-0 shadow-lg`}>
-                    <IconComponent className="w-6 h-6" />
+              <SpotlightCard key={index} className="p-5 md:p-8">
+                <div className="flex gap-4 md:gap-5 items-start">
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-tr ${item.accent} flex items-center justify-center text-slate-950 flex-shrink-0 shadow-lg`}>
+                    <IconComponent className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg md:text-xl text-white mb-2 leading-snug group-hover:text-indigo-300 transition">
+                    <h3 className="font-bold text-sm md:text-lg lg:text-xl text-white mb-1.5 md:mb-2 leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                    <p className="text-gray-400 text-xs md:text-sm lg:text-base leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -581,21 +579,21 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 px-4 bg-slate-950/30 border-y border-white/5">
+      <section id="projects" className="py-14 md:py-24 px-4 bg-slate-950/30 border-y border-white/5">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-3">DOKUMENTASI KARYA</span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8">
+          <div className="text-center mb-8 md:mb-16">
+            <span className="text-[10px] md:text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-2 md:mb-3">DOKUMENTASI KARYA</span>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 md:mb-8">
               Proyek &amp; Pengalaman
             </h2>
 
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto bg-slate-900/60 p-2 rounded-2xl border border-white/5 backdrop-blur-md">
+            {/* Filter Tabs - scrollable on mobile */}
+            <div className="flex overflow-x-auto pb-2 md:overflow-visible md:flex-wrap justify-start md:justify-center gap-2 max-w-3xl mx-auto bg-slate-900/60 p-2 rounded-xl md:rounded-2xl border border-white/5 backdrop-blur-md scrollbar-hide">
               {['Semua', 'Teknologi & Dev', 'Pendidikan & Pengabdian', 'Kepemimpinan & Organisasi'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`px-5 py-2.5 rounded-xl font-medium text-xs md:text-sm transition-all duration-300 cursor-pointer ${
+                  className={`flex-shrink-0 px-4 py-2 md:px-5 md:py-2.5 rounded-lg md:rounded-xl font-medium text-xs transition-all duration-300 cursor-pointer ${
                     activeTab === tab 
                       ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/25' 
                       : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -608,34 +606,34 @@ export default function App() {
           </div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {filteredProjects.map((item, index) => (
               <SpotlightCard key={index} className="flex flex-col h-full">
                 {/* Project Image */}
-                <div className="relative h-48 overflow-hidden rounded-t-2xl group/img">
+                <div className="relative h-40 md:h-48 overflow-hidden rounded-t-2xl group/img">
                   <img 
                     src={item.image} 
                     alt={item.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                   />
                   {/* Category Badge */}
-                  <span className="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md text-[10px] font-bold font-display px-2.5 py-1 rounded-full text-indigo-300 border border-white/5">
+                  <span className="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md text-[9px] md:text-[10px] font-bold font-display px-2 py-0.5 md:px-2.5 md:py-1 rounded-full text-indigo-300 border border-white/5">
                     {item.badge}
                   </span>
                 </div>
 
                 {/* Project Details */}
-                <div className="p-6 flex flex-col flex-grow">
-                  <span className="text-[10px] font-semibold text-indigo-400 uppercase tracking-widest font-display block mb-1">
+                <div className="p-4 md:p-6 flex flex-col flex-grow">
+                  <span className="text-[9px] md:text-[10px] font-semibold text-indigo-400 uppercase tracking-widest font-display block mb-1">
                     {item.category}
                   </span>
-                  <h3 className="font-bold text-lg text-white mb-2 leading-snug hover:text-indigo-300 transition duration-300">
+                  <h3 className="font-bold text-sm md:text-lg text-white mb-1.5 md:mb-2 leading-snug hover:text-indigo-300 transition duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-indigo-200/50 text-xs font-medium mb-3">
+                  <p className="text-indigo-200/50 text-[11px] md:text-xs font-medium mb-2 md:mb-3">
                     {item.subtitle}
                   </p>
-                  <p className="text-gray-400 text-sm leading-relaxed flex-grow">
+                  <p className="text-gray-400 text-xs md:text-sm leading-relaxed flex-grow">
                     {item.description}
                   </p>
                 </div>
@@ -646,20 +644,20 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-4 max-w-4xl mx-auto">
-        <div className="glass-panel p-8 md:p-16 rounded-3xl border-white/5 shadow-2xl relative overflow-hidden text-center">
+      <section id="contact" className="py-14 md:py-24 px-4 max-w-4xl mx-auto">
+        <div className="glass-panel p-6 sm:p-10 md:p-16 rounded-2xl md:rounded-3xl border-white/5 shadow-2xl relative overflow-hidden text-center">
           {/* Accent lighting inside panel */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-indigo-500/20 rounded-full blur-[80px] pointer-events-none"></div>
 
-          <span className="text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-3">HUBUNGI SAYA</span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <span className="text-[10px] md:text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-2 md:mb-3">HUBUNGI SAYA</span>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6">
             Mari Berkolaborasi!
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto mb-12 text-sm md:text-base">
+          <p className="text-gray-400 max-w-xl mx-auto mb-8 md:mb-12 text-xs sm:text-sm md:text-base px-2">
             Saya sangat antusias untuk berdiskusi tentang peluang magang, proyek web development, kegiatan organisasi, atau kolaborasi kepemudaan.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 max-w-3xl mx-auto">
             {/* Email */}
             <Magnetic strength={0.15}>
               <a 
