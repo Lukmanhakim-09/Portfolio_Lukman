@@ -124,8 +124,8 @@ export default function App() {
     { image: '/bappeda.jpg', text: 'Bappeda Parepare' },
     { image: '/suruang.JPG', text: 'Beasiswa Kalla Suruang' },
     { image: '/graduation.jpeg', text: 'Graduation' },
-    { image: '/sb2.jpg', text: 'Studi Banding ITS' },
-    { image: '/sb3.jpeg', text: 'Studi Banding UB' },
+    { image: '/sb2.jpg', text: 'Studi Banding UB' },
+    { image: '/sb3.jpeg', text: 'Studi Banding ITS' },
     { image: '/iic.jpeg', text: 'IIC Competition' },
   ];
 
