@@ -9,18 +9,30 @@
   color-scheme: dark;
 }
 
+/* === GLOBAL RESET === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: #030303;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  width: 100%;
+  min-width: 0;
 }
 
-/* Custom Scrollbar */
+/* === CUSTOM SCROLLBAR === */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -37,7 +49,16 @@ body {
   background: #312e81;
 }
 
-/* Utility Animations & Backgrounds */
+/* Hide scrollbar utility (for filter tabs on mobile) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* === GLASSMORPHISM === */
 .glass-panel {
   background: rgba(15, 23, 42, 0.4);
   backdrop-filter: blur(16px) saturate(120%);
@@ -45,6 +66,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* === GRADIENT TEXT === */
 .gradient-text-indigo-cyan {
   background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 50%, #22d3ee 100%);
   -webkit-background-clip: text;
@@ -59,28 +81,31 @@ body {
   background-clip: text;
 }
 
-/* Glowing Aura Background Elements */
+/* === GLOWING BACKGROUND ORBS === */
+/* Contained so they never cause horizontal overflow */
 .glowing-bg-indigo {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: min(500px, 60vw);
+  height: min(500px, 60vw);
   background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
   filter: blur(40px);
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
 .glowing-bg-cyan {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: min(400px, 50vw);
+  height: min(400px, 50vw);
   background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, rgba(34, 211, 238, 0) 70%);
   filter: blur(40px);
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
-/* Keyframes & Animations */
+/* === ANIMATIONS === */
 @keyframes pulse-slow {
   0%, 100% {
     opacity: 0.6;
@@ -96,8 +121,31 @@ body {
   animation: pulse-slow 8s ease-in-out infinite;
 }
 
-/* Custom styles for WebGL Canvas Container */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.2s ease-out both;
+}
+
+/* === WEBGL CANVAS WRAPPER === */
 .canvas-wrapper {
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* On mobile reduce the fade so content is more visible */
+@media (max-width: 640px) {
+  .canvas-wrapper {
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
 }

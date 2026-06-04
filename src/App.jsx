@@ -330,13 +330,15 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#030303] text-gray-100 font-sans">
+    <div className="relative min-h-screen bg-[#030303] text-gray-100 font-sans overflow-x-hidden">
       {/* Starfield Particles */}
       <ParticleBackground />
 
-      {/* Floating Glowing Orbs */}
-      <div className="glowing-bg-indigo top-[10%] left-[-100px] animate-pulse-slow"></div>
-      <div className="glowing-bg-cyan top-[60%] right-[-100px] animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
+      {/* Background Glowing Orbs Container */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="glowing-bg-indigo top-[10%] left-0 -translate-x-1/2 animate-pulse-slow"></div>
+        <div className="glowing-bg-cyan top-[60%] right-0 translate-x-1/2 animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
+      </div>
 
       {/* Navigation Header */}
       <nav className="fixed top-0 left-0 w-full z-50 px-3 md:px-8 py-3 md:py-4">
@@ -563,7 +565,7 @@ export default function App() {
                   <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-tr ${item.accent} flex items-center justify-center text-slate-950 flex-shrink-0 shadow-lg`}>
                     <IconComponent className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <h3 className="font-bold text-sm md:text-lg lg:text-xl text-white mb-1.5 md:mb-2 leading-snug">
                       {item.title}
                     </h3>
@@ -659,17 +661,17 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 max-w-3xl mx-auto">
             {/* Email */}
-            <Magnetic strength={0.15}>
+            <Magnetic strength={0.15} className="w-full">
               <a 
                 href="mailto:lukman090603@gmail.com" 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center gap-3 bg-slate-900/60 hover:bg-slate-800 hover:border-indigo-500/40 p-4 rounded-2xl border border-white/5 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 group justify-center w-full"
+                className="flex items-center gap-3 bg-slate-900/60 hover:bg-slate-800 hover:border-indigo-500/40 p-4 rounded-2xl border border-white/5 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 group justify-center w-full min-w-0"
               >
-                <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 flex-shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
-                <div className="text-left">
+                <div className="text-left min-w-0">
                   <span className="block text-[10px] text-gray-500 font-semibold font-display uppercase">Email</span>
                   <span className="block text-xs font-bold text-gray-200 group-hover:text-indigo-300 transition break-all">lukman090603@gmail.com</span>
                 </div>
@@ -677,17 +679,17 @@ export default function App() {
             </Magnetic>
 
             {/* WhatsApp */}
-            <Magnetic strength={0.15}>
+            <Magnetic strength={0.15} className="w-full">
               <a 
                 href="https://wa.me/6282296535929" 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center gap-3 bg-slate-900/60 hover:bg-slate-800 hover:border-emerald-500/40 p-4 rounded-2xl border border-white/5 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group justify-center w-full"
+                className="flex items-center gap-3 bg-slate-900/60 hover:bg-slate-800 hover:border-emerald-500/40 p-4 rounded-2xl border border-white/5 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group justify-center w-full min-w-0"
               >
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 flex-shrink-0">
                   <MessageSquare className="w-5 h-5" />
                 </div>
-                <div className="text-left">
+                <div className="text-left min-w-0">
                   <span className="block text-[10px] text-gray-500 font-semibold font-display uppercase">WhatsApp</span>
                   <span className="block text-xs font-bold text-gray-200 group-hover:text-emerald-400 transition">082296535929</span>
                 </div>
@@ -695,17 +697,17 @@ export default function App() {
             </Magnetic>
 
             {/* LinkedIn */}
-            <Magnetic strength={0.15}>
+            <Magnetic strength={0.15} className="w-full">
               <a 
                 href="https://www.linkedin.com/in/lukman-hakim09" 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center gap-3 bg-slate-900/60 hover:bg-slate-800 hover:border-blue-500/40 p-4 rounded-2xl border border-white/5 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 group justify-center w-full"
+                className="flex items-center gap-3 bg-slate-900/60 hover:bg-slate-800 hover:border-blue-500/40 p-4 rounded-2xl border border-white/5 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 group justify-center w-full min-w-0"
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 flex-shrink-0">
                   <Linkedin className="w-5 h-5" />
                 </div>
-                <div className="text-left">
+                <div className="text-left min-w-0">
                   <span className="block text-[10px] text-gray-500 font-semibold font-display uppercase">LinkedIn</span>
                   <span className="block text-xs font-bold text-gray-200 group-hover:text-blue-300 transition">lukman-hakim09</span>
                 </div>

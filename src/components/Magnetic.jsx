@@ -1,11 +1,20 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
-export default function Magnetic({ children, strength = 0.3 }) {
+export default function Magnetic({ children, strength = 0.3, className = '' }) {
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isHoverSupported, setIsHoverSupported] = useState(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover)');
+    setIsHoverSupported(mediaQuery.matches);
+    const handler = (e) => setIsHoverSupported(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
 
   const handleMouseMove = (e) => {
-    if (!ref.current) return;
+    if (!isHoverSupported || !ref.current) return;
     const { clientX, clientY } = e;
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -20,6 +29,7 @@ export default function Magnetic({ children, strength = 0.3 }) {
   };
 
   const handleMouseLeave = () => {
+    if (!isHoverSupported) return;
     setPosition({ x: 0, y: 0 });
   };
 
@@ -28,9 +38,9 @@ export default function Magnetic({ children, strength = 0.3 }) {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="inline-block transition-transform duration-200 ease-out"
+      className={`inline-block transition-transform duration-200 ease-out ${className}`}
       style={{
-        transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
+        transform: isHoverSupported ? `translate3d(${position.x}px, ${position.y}px, 0)` : 'none',
       }}
     >
       {children}

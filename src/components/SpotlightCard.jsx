@@ -56,7 +56,7 @@ export default function SpotlightCard({
       />
 
       {/* Inner Content */}
-      <div className="relative z-10 h-full w-full">
+      <div className="relative z-10 h-full w-full flex flex-col flex-grow min-w-0">
         {children}
       </div>
     </div>
