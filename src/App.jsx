@@ -258,12 +258,12 @@ export default function App() {
     },
     // Pengalaman Lain
     {
-      title: "Anggota Paskibraka Kabupaten",
+      title: "PPI (Purna Paskibraka Indonesia) Kabupaten",
       subtitle: "Dinas Kepemudaan & Olahraga",
       description: "Terpilih sebagai tim pengibar bendera pusaka tingkat kabupaten melalui seleksi fisik dan kepemimpinan yang ketat.",
       category: "Kepemimpinan & Organisasi",
       image: "/paskibra.jpeg",
-      badge: "Paskibraka"
+      badge: "PPI"
     },
     {
       title: "Badan Eksekutif Mahasiswa (BEM)",
