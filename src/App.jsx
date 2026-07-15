@@ -304,6 +304,82 @@ export default function App() {
       category: "Kepemimpinan & Organisasi",
       image: "/MC.jpg",
       badge: "Public Speaking"
+    },
+    {
+      title: "Administrasi Bantuan Pangan (Banpang)",
+      subtitle: "PERUM BULOG (Badan Urusan Logistik)",
+      description: "Bertanggung jawab atas pengelolaan dokumen administrasi dan pencatatan data penyaluran program Bantuan Pangan (Banpang) masyarakat secara digital, serta berkoordinasi dengan tim logistik untuk efisiensi distribusi.",
+      category: "Kepemimpinan & Organisasi",
+      image: "/banpang.jpeg",
+      badge: "Administrasi"
+    }
+  ];
+
+  // Dicoding Certificates Data
+  const dicodingCerts = [
+    {
+      title: "Belajar Dasar Pemrograman Python",
+      issuer: "Dicoding Indonesia",
+      date: "Juni 2026",
+      pdf: "/certs/sertifikat_pemrograman_python.pdf",
+      icon: Code,
+      color: "from-blue-500/20 to-indigo-500/10 text-blue-400 border-blue-500/30"
+    },
+    {
+      title: "Belajar Membuat Aplikasi Back-End untuk Pemula",
+      issuer: "Dicoding Indonesia",
+      date: "Juni 2026",
+      pdf: "/certs/sertifikat_backend_pemula.pdf",
+      icon: Terminal,
+      color: "from-green-500/20 to-emerald-500/10 text-emerald-400 border-emerald-500/30"
+    },
+    {
+      title: "Prompt Engineering untuk Software Developer",
+      issuer: "Dicoding Indonesia",
+      date: "Juni 2026",
+      pdf: "/certs/sertifikat_prompt_engineering.pdf",
+      icon: Terminal,
+      color: "from-purple-500/20 to-pink-500/10 text-purple-400 border-purple-500/30"
+    },
+    {
+      title: "Belajar Dasar Google Cloud",
+      issuer: "Dicoding Indonesia",
+      date: "Juni 2026",
+      pdf: "/certs/sertifikat_dasar_google_cloud.pdf",
+      icon: Globe,
+      color: "from-cyan-500/20 to-blue-500/10 text-cyan-400 border-cyan-500/30"
+    },
+    {
+      title: "Menjadi Google Cloud Associate (Pembuatan Aplikasi)",
+      issuer: "Dicoding Indonesia",
+      date: "Juni 2026",
+      pdf: "/certs/sertifikat_aplikasi_google_cloud.pdf",
+      icon: Layers,
+      color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30"
+    },
+    {
+      title: "Belajar Dasar Manajemen Proyek",
+      issuer: "Dicoding Indonesia",
+      date: "Juni 2026",
+      pdf: "/certs/sertifikat_manajemen_proyek.pdf",
+      icon: BookOpen,
+      color: "from-amber-500/20 to-orange-500/10 text-amber-400 border-amber-500/30"
+    },
+    {
+      title: "Pengenalan ke Kecerdasan Buatan (AI)",
+      issuer: "Dicoding Indonesia",
+      date: "Juni 2026",
+      pdf: "/certs/sertifikat_ai.pdf",
+      icon: Award,
+      color: "from-violet-500/20 to-purple-500/10 text-violet-400 border-violet-500/30"
+    },
+    {
+      title: "Belajar Dasar Data Science",
+      issuer: "Dicoding Indonesia",
+      date: "Juni 2026",
+      pdf: "/certs/sertifikat_data_science.pdf",
+      icon: Layers,
+      color: "from-rose-500/20 to-red-500/10 text-rose-400 border-rose-500/30"
     }
   ];
 
@@ -642,6 +718,53 @@ export default function App() {
               </SpotlightCard>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Dicoding Certificates Section */}
+      <section id="certificates" className="py-14 md:py-24 px-4 max-w-6xl mx-auto">
+        <div className="text-center mb-10 md:mb-16">
+          <span className="text-[10px] md:text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-2 md:mb-3">SERTIFIKASI ACADEMY</span>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold">
+            Dicoding Certificates
+          </h2>
+          <p className="text-gray-400 max-w-xl mx-auto mt-3 md:mt-4 text-xs md:text-base px-2">
+            Sertifikasi kompetensi resmi yang diterbitkan oleh Dicoding Indonesia sebagai Google Developers Authorized Training Partner.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {dicodingCerts.map((cert, index) => {
+            const IconComponent = cert.icon;
+            return (
+              <SpotlightCard key={index} className="p-5 md:p-6 flex flex-col h-full justify-between">
+                <div>
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-tr ${cert.color} flex items-center justify-center mb-4 border shadow-sm`}>
+                    <IconComponent className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-sm md:text-base text-white mb-2 leading-snug">
+                    {cert.title}
+                  </h3>
+                  <p className="text-gray-500 text-[11px] md:text-xs font-medium mb-1">
+                    Penerbit: {cert.issuer}
+                  </p>
+                  <p className="text-gray-500 text-[11px] md:text-xs">
+                    Diperoleh: {cert.date}
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-white/5">
+                  <a 
+                    href={cert.pdf} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition duration-300"
+                  >
+                    Lihat Sertifikat (PDF) <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </SpotlightCard>
+            );
+          })}
         </div>
       </section>
 
