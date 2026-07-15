@@ -4,7 +4,7 @@ export default function SpotlightCard({
   children,
   className = '',
   spotlightColor = 'rgba(99, 102, 241, 0.08)', // Indigo-colored glow
-  borderColor = 'rgba(255, 255, 255, 0.08)',
+  borderColor = 'var(--card-border)',
   ...props
 }) {
   const cardRef = useRef(null);
@@ -26,7 +26,7 @@ export default function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsFocused(true)}
       onMouseLeave={() => setIsFocused(false)}
-      className={`relative overflow-hidden rounded-2xl border bg-slate-900/60 backdrop-blur-md transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-indigo-500/10 ${className}`}
+      className={`relative overflow-hidden rounded-2xl border bg-[var(--card-bg)] backdrop-blur-md transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-indigo-500/10 ${className}`}
       style={{
         borderColor: isFocused ? 'transparent' : borderColor,
         ...props.style,

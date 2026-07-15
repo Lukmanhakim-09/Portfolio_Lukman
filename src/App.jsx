@@ -16,7 +16,9 @@ import {
   ExternalLink,
   ChevronRight,
   Menu,
-  X
+  X,
+  Sun,
+  Moon
 } from 'lucide-react';
 
 // Animations from React Bits
@@ -102,6 +104,22 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('Semua');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'light') {
+      root.classList.add('light');
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      root.classList.add('dark');
+      root.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+    }
+  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -406,7 +424,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#030303] text-gray-100 font-sans overflow-x-hidden">
+    <div className="relative min-h-screen bg-bg-theme text-text-theme font-sans overflow-x-hidden transition-colors duration-300">
       {/* Starfield Particles */}
       <ParticleBackground />
 
@@ -424,22 +442,30 @@ export default function App() {
               LH
             </div>
             <div className="hidden sm:block">
-              <span className="font-bold text-base md:text-lg tracking-wide text-white">Lukman Hakim</span>
+              <span className="font-bold text-base md:text-lg tracking-wide text-title-theme">Lukman Hakim</span>
               <span className="block text-[9px] md:text-[10px] text-indigo-400 font-medium font-display leading-none mt-0.5">SYSTEM INFORMATION</span>
             </div>
           </div>
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-            <button onClick={() => handleScrollToSection('about')} className="text-gray-300 hover:text-white transition font-medium text-sm">Tentang</button>
-            <button onClick={() => handleScrollToSection('showcase')} className="text-gray-300 hover:text-white transition font-medium text-sm">Galeri 3D</button>
-            <button onClick={() => handleScrollToSection('achievements')} className="text-gray-300 hover:text-white transition font-medium text-sm">Prestasi</button>
-            <button onClick={() => handleScrollToSection('projects')} className="text-gray-300 hover:text-white transition font-medium text-sm">Proyek</button>
-            <button onClick={() => handleScrollToSection('contact')} className="text-gray-300 hover:text-white transition font-medium text-sm">Kontak</button>
+            <button onClick={() => handleScrollToSection('about')} className="text-text-muted hover:text-text-theme transition font-medium text-sm cursor-pointer">Tentang</button>
+            <button onClick={() => handleScrollToSection('showcase')} className="text-text-muted hover:text-text-theme transition font-medium text-sm cursor-pointer">Galeri 3D</button>
+            <button onClick={() => handleScrollToSection('achievements')} className="text-text-muted hover:text-text-theme transition font-medium text-sm cursor-pointer">Prestasi</button>
+            <button onClick={() => handleScrollToSection('projects')} className="text-text-muted hover:text-text-theme transition font-medium text-sm cursor-pointer">Proyek</button>
+            <button onClick={() => handleScrollToSection('contact')} className="text-text-muted hover:text-text-theme transition font-medium text-sm cursor-pointer">Kontak</button>
           </div>
 
-          {/* Contact Button */}
-          <div className="hidden lg:block">
+          {/* Theme Toggle & Contact Button */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="p-2.5 rounded-xl bg-slate-900/60 hover:bg-slate-800 border border-white/5 text-gray-400 hover:text-white transition-all duration-300 shadow-md cursor-pointer flex items-center justify-center dark:border-white/5 light:border-black/10"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+            </button>
+
             <Magnetic strength={0.2}>
               <button 
                 onClick={() => handleScrollToSection('contact')}
@@ -450,24 +476,34 @@ export default function App() {
             </Magnetic>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 text-gray-300 hover:text-white focus:outline-none"
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile Theme Toggle & Menu Toggle */}
+          <div className="flex lg:hidden items-center gap-2">
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="p-2 rounded-xl bg-slate-900/60 hover:bg-slate-800 border border-white/5 text-gray-400 hover:text-white transition-all duration-300 shadow-md cursor-pointer flex items-center justify-center"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+            </button>
+
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-1.5 text-text-muted hover:text-text-theme focus:outline-none cursor-pointer"
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden mt-2 glass-panel rounded-2xl px-6 py-4 shadow-2xl border-white/5 flex flex-col gap-1 animate-fade-in-down">
-            <button onClick={() => handleScrollToSection('about')} className="text-left py-3 text-gray-300 hover:text-white transition font-medium text-sm border-b border-white/5">Tentang Saya</button>
-            <button onClick={() => handleScrollToSection('showcase')} className="text-left py-3 text-gray-300 hover:text-white transition font-medium text-sm border-b border-white/5">Galeri 3D</button>
-            <button onClick={() => handleScrollToSection('achievements')} className="text-left py-3 text-gray-300 hover:text-white transition font-medium text-sm border-b border-white/5">Prestasi</button>
-            <button onClick={() => handleScrollToSection('projects')} className="text-left py-3 text-gray-300 hover:text-white transition font-medium text-sm border-b border-white/5">Proyek & Pengalaman</button>
-            <button onClick={() => handleScrollToSection('contact')} className="text-left py-3 text-indigo-400 hover:text-indigo-300 transition font-bold text-sm">Hubungi Saya</button>
+            <button onClick={() => handleScrollToSection('about')} className="text-left py-3 text-text-muted hover:text-text-theme transition font-medium text-sm border-b border-white/5 cursor-pointer">Tentang Saya</button>
+            <button onClick={() => handleScrollToSection('showcase')} className="text-left py-3 text-text-muted hover:text-text-theme transition font-medium text-sm border-b border-white/5 cursor-pointer">Galeri 3D</button>
+            <button onClick={() => handleScrollToSection('achievements')} className="text-left py-3 text-text-muted hover:text-text-theme transition font-medium text-sm border-b border-white/5 cursor-pointer">Prestasi</button>
+            <button onClick={() => handleScrollToSection('projects')} className="text-left py-3 text-text-muted hover:text-text-theme transition font-medium text-sm border-b border-white/5 cursor-pointer">Proyek & Pengalaman</button>
+            <button onClick={() => handleScrollToSection('contact')} className="text-left py-3 text-indigo-400 hover:text-indigo-300 transition font-bold text-sm cursor-pointer">Hubungi Saya</button>
           </div>
         )}
       </nav>
@@ -491,7 +527,7 @@ export default function App() {
 
           {/* Heading with Decrypted Text */}
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-3 md:mb-4 tracking-tight leading-tight select-none px-2">
-            <span className="block text-gray-300 text-lg sm:text-xl md:text-3xl font-normal font-sans mb-1 md:mb-2">Halo, Saya</span>
+            <span className="block text-text-muted text-lg sm:text-xl md:text-3xl font-normal font-sans mb-1 md:mb-2">Halo, Saya</span>
             <DecryptedText 
               text="Lukman Hakim" 
               speed={60}
@@ -502,12 +538,12 @@ export default function App() {
           </h1>
 
           {/* Subheading */}
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 font-medium max-w-2xl mb-3 md:mb-4 leading-relaxed px-4">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-muted font-medium max-w-2xl mb-3 md:mb-4 leading-relaxed px-4">
             Mahasiswa Sistem Informasi &amp; Web Developer
           </p>
 
           {/* Location */}
-          <div className="flex items-start gap-2 text-gray-500 text-[11px] sm:text-xs md:text-sm mb-8 md:mb-10 max-w-xs sm:max-w-sm md:max-w-md px-2 text-center justify-center">
+          <div className="flex items-start gap-2 text-text-dim text-[11px] sm:text-xs md:text-sm mb-8 md:mb-10 max-w-xs sm:max-w-sm md:max-w-md px-2 text-center justify-center">
             <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-400 flex-shrink-0 mt-0.5" />
             <span className="leading-snug text-center">Institut Teknologi Bacharuddin Jusuf Habibie (ITBH), Pinrang, Sulsel</span>
           </div>
@@ -523,7 +559,7 @@ export default function App() {
             
             <button 
               onClick={() => handleScrollToSection('contact')}
-              className="w-full sm:w-auto bg-slate-900/80 hover:bg-slate-800 text-gray-300 hover:text-white font-semibold px-6 md:px-8 py-3 md:py-3.5 rounded-xl border border-white/5 transition-all duration-300 text-sm md:text-base cursor-pointer"
+              className="w-full sm:w-auto bg-[var(--card-bg)] hover:bg-indigo-500/10 text-text-muted hover:text-text-theme font-semibold px-6 md:px-8 py-3 md:py-3.5 rounded-xl border border-[var(--card-border)] transition-all duration-300 text-sm md:text-base cursor-pointer"
             >
               Kontak Saya
             </button>
@@ -542,10 +578,10 @@ export default function App() {
                 speed={50}
                 delay={200}
                 sequential={true}
-                className="text-white"
+                className="text-title-theme"
               />
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto mt-3 md:mt-4 text-xs md:text-base px-2">
+            <p className="text-text-muted max-w-xl mx-auto mt-3 md:mt-4 text-xs md:text-base px-2">
               Geser atau swipe untuk menjelajahi dokumentasi 3D kegiatan utama saya.
             </p>
           </div>
@@ -600,22 +636,22 @@ export default function App() {
           <div className="lg:col-span-7 flex flex-col gap-5 md:gap-6">
             <div>
               <span className="text-[10px] md:text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-2 md:mb-3">TENTANG SAYA</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-title-theme tracking-tight leading-tight">
                 Mengejar Akademik &amp; Dedikasi Organisasi
               </h2>
             </div>
             
-            <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed">
+            <p className="text-text-muted text-sm md:text-base lg:text-lg leading-relaxed">
               Saya adalah mahasiswa S1 Sistem Informasi di <strong>Institut Teknologi Bacharuddin Jusuf Habibie</strong> yang berkomitmen tinggi untuk mencapai keunggulan akademik, terbukti dengan perolehan <strong>IPK 3.97</strong>.
             </p>
             
-            <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed">
+            <p className="text-text-muted text-sm md:text-base lg:text-lg leading-relaxed">
               Selain fokus di bidang teknologi dan analisis sistem, saya mendedikasikan diri dalam kepemimpinan mahasiswa dan pengabdian masyarakat. Sebagai <strong>Duta Kampus Intelegensia Sulawesi Selatan 2023</strong>, saya aktif mempromosikan kemajuan pendidikan dan berkontribusi dalam perlindungan mahasiswa melalui Satgas PPKS.
             </p>
 
             {/* Motto Quote Card */}
-            <div className="relative border-l-4 border-indigo-500 bg-slate-900/40 backdrop-blur-md p-4 md:p-5 rounded-r-2xl border-y border-r border-white/5">
-              <p className="italic text-indigo-300 font-medium text-sm md:text-base">
+            <div className="relative border-l-4 border-indigo-500 bg-[var(--card-bg)] backdrop-blur-md p-4 md:p-5 rounded-r-2xl border-y border-r border-[var(--card-border)]">
+              <p className="italic text-indigo-400 dark:text-indigo-300 font-medium text-sm md:text-base">
                 "Dedikasi untuk pendidikan dan pengembangan diri adalah kunci masa depan."
               </p>
             </div>
@@ -642,10 +678,10 @@ export default function App() {
                     <IconComponent className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-bold text-sm md:text-lg lg:text-xl text-white mb-1.5 md:mb-2 leading-snug">
+                    <h3 className="font-bold text-sm md:text-lg lg:text-xl text-title-theme mb-1.5 md:mb-2 leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 text-xs md:text-sm lg:text-base leading-relaxed">
+                    <p className="text-text-muted text-xs md:text-sm lg:text-base leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -666,7 +702,7 @@ export default function App() {
             </h2>
 
             {/* Filter Tabs - scrollable on mobile */}
-            <div className="flex overflow-x-auto pb-2 md:overflow-visible md:flex-wrap justify-start md:justify-center gap-2 max-w-3xl mx-auto bg-slate-900/60 p-2 rounded-xl md:rounded-2xl border border-white/5 backdrop-blur-md scrollbar-hide">
+            <div className="flex overflow-x-auto pb-2 md:overflow-visible md:flex-wrap justify-start md:justify-center gap-2 max-w-3xl mx-auto bg-[var(--card-bg)] p-2 rounded-xl md:rounded-2xl border border-[var(--card-border)] backdrop-blur-md scrollbar-hide">
               {['Semua', 'Teknologi & Dev', 'Pendidikan & Pengabdian', 'Kepemimpinan & Organisasi'].map((tab) => (
                 <button
                   key={tab}
@@ -674,7 +710,7 @@ export default function App() {
                   className={`flex-shrink-0 px-4 py-2 md:px-5 md:py-2.5 rounded-lg md:rounded-xl font-medium text-xs transition-all duration-300 cursor-pointer ${
                     activeTab === tab 
                       ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/25' 
-                      : 'text-gray-400 hover:text-white hover:bg-white/5'
+                      : 'text-text-muted hover:text-title-theme hover:bg-indigo-500/5'
                   }`}
                 >
                   {tab}
@@ -682,7 +718,7 @@ export default function App() {
               ))}
             </div>
           </div>
-
+ 
           {/* Grid Layout */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {filteredProjects.map((item, index) => (
@@ -695,23 +731,23 @@ export default function App() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                   />
                   {/* Category Badge */}
-                  <span className="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md text-[9px] md:text-[10px] font-bold font-display px-2 py-0.5 md:px-2.5 md:py-1 rounded-full text-indigo-300 border border-white/5">
+                  <span className="absolute top-3 right-3 bg-[var(--card-bg)] backdrop-blur-md text-[9px] md:text-[10px] font-bold font-display px-2 py-0.5 md:px-2.5 md:py-1 rounded-full text-indigo-400 dark:text-indigo-300 border border-[var(--card-border)]">
                     {item.badge}
                   </span>
                 </div>
-
+ 
                 {/* Project Details */}
                 <div className="p-4 md:p-6 flex flex-col flex-grow">
                   <span className="text-[9px] md:text-[10px] font-semibold text-indigo-400 uppercase tracking-widest font-display block mb-1">
                     {item.category}
                   </span>
-                  <h3 className="font-bold text-sm md:text-lg text-white mb-1.5 md:mb-2 leading-snug hover:text-indigo-300 transition duration-300">
+                  <h3 className="font-bold text-sm md:text-lg text-title-theme mb-1.5 md:mb-2 leading-snug hover:text-indigo-300 transition duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-indigo-200/50 text-[11px] md:text-xs font-medium mb-2 md:mb-3">
+                  <p className="text-indigo-500/60 dark:text-indigo-200/50 text-[11px] md:text-xs font-medium mb-2 md:mb-3">
                     {item.subtitle}
                   </p>
-                  <p className="text-gray-400 text-xs md:text-sm leading-relaxed flex-grow">
+                  <p className="text-text-muted text-xs md:text-sm leading-relaxed flex-grow">
                     {item.description}
                   </p>
                 </div>
@@ -728,11 +764,11 @@ export default function App() {
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold">
             Dicoding Certificates
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto mt-3 md:mt-4 text-xs md:text-base px-2">
+          <p className="text-text-muted max-w-xl mx-auto mt-3 md:mt-4 text-xs md:text-base px-2">
             Sertifikasi kompetensi resmi yang diterbitkan oleh Dicoding Indonesia sebagai Google Developers Authorized Training Partner.
           </p>
         </div>
-
+ 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {dicodingCerts.map((cert, index) => {
             const IconComponent = cert.icon;
@@ -742,17 +778,17 @@ export default function App() {
                   <div className={`w-10 h-10 rounded-xl bg-gradient-to-tr ${cert.color} flex items-center justify-center mb-4 border shadow-sm`}>
                     <IconComponent className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-sm md:text-base text-white mb-2 leading-snug">
+                  <h3 className="font-bold text-sm md:text-base text-title-theme mb-2 leading-snug">
                     {cert.title}
                   </h3>
-                  <p className="text-gray-500 text-[11px] md:text-xs font-medium mb-1">
+                  <p className="text-text-dim text-[11px] md:text-xs font-medium mb-1">
                     Penerbit: {cert.issuer}
                   </p>
-                  <p className="text-gray-500 text-[11px] md:text-xs">
+                  <p className="text-text-dim text-[11px] md:text-xs">
                     Diperoleh: {cert.date}
                   </p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-white/5">
+                <div className="mt-6 pt-4 border-t border-[var(--border-light)]">
                   <a 
                     href={cert.pdf} 
                     target="_blank" 
@@ -767,21 +803,21 @@ export default function App() {
           })}
         </div>
       </section>
-
+ 
       {/* Contact Section */}
       <section id="contact" className="py-14 md:py-24 px-4 max-w-4xl mx-auto">
-        <div className="glass-panel p-6 sm:p-10 md:p-16 rounded-2xl md:rounded-3xl border-white/5 shadow-2xl relative overflow-hidden text-center">
+        <div className="glass-panel p-6 sm:p-10 md:p-16 rounded-2xl md:rounded-3xl border-[var(--border-light)] shadow-2xl relative overflow-hidden text-center">
           {/* Accent lighting inside panel */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-indigo-500/20 rounded-full blur-[80px] pointer-events-none"></div>
-
+ 
           <span className="text-[10px] md:text-xs font-bold tracking-widest text-indigo-400 font-display uppercase block mb-2 md:mb-3">HUBUNGI SAYA</span>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6">
             Mari Berkolaborasi!
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto mb-8 md:mb-12 text-xs sm:text-sm md:text-base px-2">
+          <p className="text-text-muted max-w-xl mx-auto mb-8 md:mb-12 text-xs sm:text-sm md:text-base px-2">
             Saya sangat antusias untuk berdiskusi tentang peluang magang, proyek web development, kegiatan organisasi, atau kolaborasi kepemudaan.
           </p>
-
+ 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 max-w-3xl mx-auto">
             {/* Email */}
             <Magnetic strength={0.15} className="w-full">
@@ -789,14 +825,14 @@ export default function App() {
                 href="mailto:lukman090603@gmail.com" 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center gap-3 bg-slate-900/60 hover:bg-slate-800 hover:border-indigo-500/40 p-4 rounded-2xl border border-white/5 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 group justify-center w-full min-w-0"
+                className="flex items-center gap-3 bg-[var(--card-bg)] hover:bg-slate-800/10 hover:border-indigo-500/40 p-4 rounded-2xl border border-[var(--card-border)] hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 group justify-center w-full min-w-0"
               >
                 <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 flex-shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="text-left min-w-0">
-                  <span className="block text-[10px] text-gray-500 font-semibold font-display uppercase">Email</span>
-                  <span className="block text-xs font-bold text-gray-200 group-hover:text-indigo-300 transition break-all">lukman090603@gmail.com</span>
+                  <span className="block text-[10px] text-text-dim font-semibold font-display uppercase">Email</span>
+                  <span className="block text-xs font-bold text-text-theme group-hover:text-indigo-400 transition break-all">lukman090603@gmail.com</span>
                 </div>
               </a>
             </Magnetic>
@@ -807,32 +843,32 @@ export default function App() {
                 href="https://wa.me/6282296535929" 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center gap-3 bg-slate-900/60 hover:bg-slate-800 hover:border-emerald-500/40 p-4 rounded-2xl border border-white/5 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group justify-center w-full min-w-0"
+                className="flex items-center gap-3 bg-[var(--card-bg)] hover:bg-slate-800/10 hover:border-emerald-500/40 p-4 rounded-2xl border border-[var(--card-border)] hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group justify-center w-full min-w-0"
               >
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 flex-shrink-0">
                   <MessageSquare className="w-5 h-5" />
                 </div>
                 <div className="text-left min-w-0">
-                  <span className="block text-[10px] text-gray-500 font-semibold font-display uppercase">WhatsApp</span>
-                  <span className="block text-xs font-bold text-gray-200 group-hover:text-emerald-400 transition">082296535929</span>
+                  <span className="block text-[10px] text-text-dim font-semibold font-display uppercase">WhatsApp</span>
+                  <span className="block text-xs font-bold text-text-theme group-hover:text-emerald-400 transition">082296535929</span>
                 </div>
               </a>
             </Magnetic>
-
+ 
             {/* LinkedIn */}
             <Magnetic strength={0.15} className="w-full">
               <a 
                 href="https://www.linkedin.com/in/lukman-hakim09" 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center gap-3 bg-slate-900/60 hover:bg-slate-800 hover:border-blue-500/40 p-4 rounded-2xl border border-white/5 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 group justify-center w-full min-w-0"
+                className="flex items-center gap-3 bg-[var(--card-bg)] hover:bg-slate-800/10 hover:border-blue-500/40 p-4 rounded-2xl border border-[var(--card-border)] hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 group justify-center w-full min-w-0"
               >
                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 flex-shrink-0">
                   <Linkedin className="w-5 h-5" />
                 </div>
                 <div className="text-left min-w-0">
-                  <span className="block text-[10px] text-gray-500 font-semibold font-display uppercase">LinkedIn</span>
-                  <span className="block text-xs font-bold text-gray-200 group-hover:text-blue-300 transition">lukman-hakim09</span>
+                  <span className="block text-[10px] text-text-dim font-semibold font-display uppercase">LinkedIn</span>
+                  <span className="block text-xs font-bold text-text-theme group-hover:text-blue-300 transition">lukman-hakim09</span>
                 </div>
               </a>
             </Magnetic>
